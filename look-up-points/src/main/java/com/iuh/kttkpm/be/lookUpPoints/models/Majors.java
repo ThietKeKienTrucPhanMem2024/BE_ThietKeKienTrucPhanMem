@@ -22,4 +22,5 @@ public class Majors {
     private Faculty faculty;
     @OneToMany(mappedBy = "majors")
     private List<Student> students;
+
 }

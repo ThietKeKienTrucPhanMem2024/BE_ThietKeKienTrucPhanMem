@@ -17,7 +17,7 @@ public class Faculty {
     @Column(nullable = false)
     private Long facultyId;
     private String name;
-    @OneToMany(mappedBy = "faculty")
-    private List<Majors> majors;
+//    @OneToMany(mappedBy = "faculty")
+//    private List<Majors> majors;
 
 }

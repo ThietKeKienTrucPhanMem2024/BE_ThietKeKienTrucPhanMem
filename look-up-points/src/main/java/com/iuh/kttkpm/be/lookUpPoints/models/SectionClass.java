@@ -26,7 +26,9 @@ public class SectionClass {
     private Subject subject;
     private String startDate;
     private String endDate;
+    @Enumerated(EnumType.STRING)
     private List<DayOfWeek> theorySchedule;
+    @Enumerated(EnumType.STRING)
     private List<DayOfWeek> practiceSchedule;
     private String room;
     @ManyToOne
@@ -37,5 +39,6 @@ public class SectionClass {
     private List<StudentSectionClass> studentSectionClasses;
     @OneToMany(mappedBy = "sectionClass")
     private List<Scores> scores;
+
 
 }

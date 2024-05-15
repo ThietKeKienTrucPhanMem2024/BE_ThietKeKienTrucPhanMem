@@ -22,4 +22,6 @@ public class StudentSectionClass {
     @ManyToOne
     @JoinColumn(name = "section_class_id")
     private SectionClass sectionClass;
+
+
 }

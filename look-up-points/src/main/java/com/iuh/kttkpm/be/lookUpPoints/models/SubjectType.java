@@ -19,4 +19,6 @@ public class SubjectType {
     private String name;
     @OneToMany(mappedBy = "subjectType")
     private List<Subject> subjects;
+
+
 }

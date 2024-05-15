@@ -26,4 +26,5 @@ public class Scores {
     private List<Float> regular;
     private List<Float> practice;
     private Float finalTerm;
+
 }
