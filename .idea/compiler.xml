@@ -11,6 +11,7 @@
         <module name="student" />
         <module name="gateway" />
         <module name="discovery" />
+        <module name="regist_course" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,6 +20,7 @@
       <module name="config-server" options="-parameters" />
       <module name="discovery" options="-parameters" />
       <module name="gateway" options="-parameters" />
+      <module name="regist_course" options="-parameters" />
       <module name="student" options="-parameters" />
     </option>
   </component>
