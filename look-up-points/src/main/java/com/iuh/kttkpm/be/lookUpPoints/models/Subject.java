@@ -30,8 +30,7 @@ public class Subject {
     )
     private List<Subject> prerequisites;
 
-    @OneToMany(mappedBy = "subject")
-    private List<SectionClass> sectionClasses;
+
 
 
 

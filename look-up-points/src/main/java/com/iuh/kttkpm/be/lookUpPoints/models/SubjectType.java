@@ -17,8 +17,7 @@ public class SubjectType {
     @Column(nullable = false)
     private Long subjectTypeId;
     private String name;
-    @OneToMany(mappedBy = "subjectType")
-    private List<Subject> subjects;
+
 
 
 }

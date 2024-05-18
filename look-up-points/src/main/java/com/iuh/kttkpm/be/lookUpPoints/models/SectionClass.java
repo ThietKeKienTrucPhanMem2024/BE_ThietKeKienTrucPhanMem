@@ -34,11 +34,7 @@ public class SectionClass {
     @ManyToOne
     @JoinColumn(name = "lecturer_id")
     private Lecturer lecturer;
-    @OneToMany
-    @JoinColumn(name = "section_class_id")
-    private List<StudentSectionClass> studentSectionClasses;
-    @OneToMany(mappedBy = "sectionClass")
-    private List<Scores> scores;
+
 
 
 }

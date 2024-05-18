@@ -27,10 +27,7 @@ public class Student {
     private String phone;
     private String address;
 
-    @OneToMany(mappedBy = "student")
-    private List<StudentSectionClass> studentSectionClasses;
-    @OneToMany(mappedBy = "student")
-    private List<Scores> scores;
+
 
 
 

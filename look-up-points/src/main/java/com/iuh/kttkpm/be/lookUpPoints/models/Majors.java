@@ -20,7 +20,5 @@ public class Majors {
     @ManyToOne
     @JoinColumn(name = "faculty_id")
     private Faculty faculty;
-    @OneToMany(mappedBy = "majors")
-    private List<Student> students;
 
 }

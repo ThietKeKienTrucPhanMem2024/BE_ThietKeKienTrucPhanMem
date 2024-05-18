@@ -19,7 +19,5 @@ public class Lecturer {
     private String name;
     private String email;
     private String phone;
-    @OneToMany(mappedBy = "lecturer")
-    private List<SectionClass> sectionClasses;
 
 }

@@ -11,6 +11,10 @@
         <option value="$PROJECT_DIR$/look_up_points/pom.xml" />
         <option value="$PROJECT_DIR$/discovery/pom.xml" />
         <option value="$PROJECT_DIR$/look-up-points/pom.xml" />
+        <option value="$PROJECT_DIR$/regist-course/pom.xml" />
+        <option value="$PROJECT_DIR$/config-server/pom.xml" />
+        <option value="$PROJECT_DIR$/gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/regist-courses/pom.xml" />
       </list>
     </option>
   </component>
