@@ -9,17 +9,17 @@
         <outputRelativeToContentRoot value="true" />
         <module name="config-server" />
         <module name="look-up-points" />
-        <module name="regist-courses" />
+        <module name="tuition-fee" />
         <module name="discovery" />
+        <module name="old-student" />
+        <module name="regist-courses" />
         <module name="gateway" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="old-student" target="17" />
       <module name="student" target="22" />
       <module name="student-info" target="22" />
       <module name="student-infomation" target="22" />
-      <module name="tuition-fee" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

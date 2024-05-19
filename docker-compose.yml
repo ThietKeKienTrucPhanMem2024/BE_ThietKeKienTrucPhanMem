@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  postgres1:
+    container_name: postgres1
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: lookUpPoints
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - postgres1:/data/postgres
+    ports:
+      - "5432:5432"
+
+  postgres2:
+    container_name: postgres2
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: registCourses
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    volumes:
+      - postgres2:/data/postgres
+    ports:
+      - "5433:5432"
+
+  pgadmin-compose:
+    container_name: pgadmin-compose
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "test@gmail.com"
+      PGADMIN_DEFAULT_PASSWORD: "test123!"
+    ports:
+      - "16543:80"
+    depends_on:
+      - postgres1
+      - postgres2
+
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"
+
+networks:
+  postgres1:
+    driver: bridge
+  postgres2:
+    driver: bridge
+  zipkin:
+    driver: bridge
+
+volumes:
+  postgres1:
+  postgres2:
+  pgadmin:

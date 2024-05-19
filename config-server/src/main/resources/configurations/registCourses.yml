@@ -13,7 +13,7 @@ spring:
     name: registCourses
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/registCourses
+    url: jdbc:postgresql://localhost:5433/registCourses
     username: postgres
     password: root
   jpa:
@@ -24,7 +24,7 @@ spring:
 
 application:
   config:
-    regist-courses-url: http://localhost:8222/api/v1/regist-courses
+    look-up-points-url: http://localhost:8222/api/v1/look-up-points
 
 management:
   tracing:
