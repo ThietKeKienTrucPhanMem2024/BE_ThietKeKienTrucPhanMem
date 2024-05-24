@@ -4,7 +4,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.DayOfWeek;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Builder
 @AllArgsConstructor
@@ -26,12 +28,33 @@ public class SectionClass {
     private Subject subject;
     private String startDate;
     private String endDate;
-    @Enumerated(EnumType.STRING)
-    private List<DayOfWeek> theorySchedule;
-    @Enumerated(EnumType.STRING)
-    private List<DayOfWeek> practiceSchedule;
+    @Column
+    private String theorySchedule;
+
+    @Column
+    private String practiceSchedule;
     private String room;
 
+    public void setTheorySchedule(List<WeekDay> days) {
+        this.theorySchedule = days.stream().map(Enum::name).collect(Collectors.joining(","));
+    }
 
+    public List<WeekDay> getTheorySchedule() {
+        if (this.theorySchedule == null || this.theorySchedule.isEmpty()) {
+            return Arrays.asList();
+        }
+        return Arrays.stream(this.theorySchedule.split(",")).map(WeekDay::valueOf).collect(Collectors.toList());
+    }
+
+    public void setPracticeSchedule(List<WeekDay> days) {
+        this.practiceSchedule = days.stream().map(Enum::name).collect(Collectors.joining(","));
+    }
+
+    public List<WeekDay> getPracticeSchedule() {
+        if (this.practiceSchedule == null || this.practiceSchedule.isEmpty()) {
+            return Arrays.asList();
+        }
+        return Arrays.stream(this.practiceSchedule.split(",")).map(WeekDay::valueOf).collect(Collectors.toList());
+    }
 
 }
