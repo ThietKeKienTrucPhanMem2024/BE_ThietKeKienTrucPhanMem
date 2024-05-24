@@ -1,59 +1,39 @@
-version: '3.8'
-
 services:
-  postgres1:
-    container_name: postgres1
-    image: postgres
-    restart: always
-    environment:
-      POSTGRES_DB: lookUpPoints
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-    volumes:
-      - postgres1:/data/postgres
+  mysql:
+    container_name: mysql
+    image: mysql:latest
     ports:
-      - "5432:5432"
-
-  postgres2:
-    container_name: postgres2
-    image: postgres
-    restart: always
+      - "3307:3306"
     environment:
-      POSTGRES_DB: registCourses
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: root
-    volumes:
-      - postgres2:/data/postgres
-    ports:
-      - "5433:5432"
-
-  pgadmin-compose:
-    container_name: pgadmin-compose
-    image: dpage/pgadmin4
-    environment:
-      PGADMIN_DEFAULT_EMAIL: "test@gmail.com"
-      PGADMIN_DEFAULT_PASSWORD: "test123!"
-    ports:
-      - "16543:80"
-    depends_on:
-      - postgres1
-      - postgres2
+      MYSQL_ROOT_PASSWORD: root
+    networks:
+      - mysql
+    restart: unless-stopped
 
   zipkin:
     container_name: zipkin
     image: openzipkin/zipkin
     ports:
       - "9411:9411"
-
+  zookeeper:
+    image: zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+  kafka:
+    image: bitnami/kafka:latest
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "9092:9092"
 networks:
-  postgres1:
-    driver: bridge
-  postgres2:
+  mysql:
     driver: bridge
   zipkin:
     driver: bridge
-
-volumes:
-  postgres1:
-  postgres2:
-  pgadmin:
