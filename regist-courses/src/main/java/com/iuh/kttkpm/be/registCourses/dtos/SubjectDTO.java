@@ -24,7 +24,6 @@ public class SubjectDTO {
         SubjectDTO dto = new SubjectDTO();
         dto.setSubjectId(subject.getSubjectId());
         dto.setName(subject.getName());
-        dto.setSubjectTypeId(subject.getSubjectType() != null ? subject.getSubjectType().getId() : null);
         dto.setTheoryCredit(subject.getTheoryCredit());
         dto.setPracticeCredit(subject.getPracticeCredit());
         dto.setPrerequisiteIds(subject.getPrerequisites() != null ?
