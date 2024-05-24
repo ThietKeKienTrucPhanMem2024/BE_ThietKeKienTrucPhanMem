@@ -1,4 +1,4 @@
-package com.iuh.kttkpm.be.registCourses.dto;
+package com.iuh.kttkpm.be.registCourses.dtos;
 
 import lombok.Data;
 

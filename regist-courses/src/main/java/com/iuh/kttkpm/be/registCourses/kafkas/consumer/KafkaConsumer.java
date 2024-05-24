@@ -2,16 +2,13 @@ package com.iuh.kttkpm.be.registCourses.kafkas.consumer;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.iuh.kttkpm.be.registCourses.client.LookUpPointClient;
-import com.iuh.kttkpm.be.registCourses.dto.RegistionRequest;
+import com.iuh.kttkpm.be.registCourses.dtos.RegistionRequest;
 import com.iuh.kttkpm.be.registCourses.models.Registion;
-import com.iuh.kttkpm.be.registCourses.models.SectionClass;
 import com.iuh.kttkpm.be.registCourses.repositories.RegistionRepository;
 import com.iuh.kttkpm.be.registCourses.repositories.SectionClassRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

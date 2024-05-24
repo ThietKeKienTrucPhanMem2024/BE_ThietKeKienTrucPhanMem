@@ -1,7 +1,7 @@
 package com.iuh.kttkpm.be.registCourses.controllers;
 
 import com.iuh.kttkpm.be.registCourses.client.LookUpPointClient;
-import com.iuh.kttkpm.be.registCourses.dto.RegistionRequest;
+import com.iuh.kttkpm.be.registCourses.dtos.RegistionRequest;
 import com.iuh.kttkpm.be.registCourses.kafkas.producer.KafkaProducer;
 import com.iuh.kttkpm.be.registCourses.models.Registion;
 import com.iuh.kttkpm.be.registCourses.repositories.RegistionRepository;

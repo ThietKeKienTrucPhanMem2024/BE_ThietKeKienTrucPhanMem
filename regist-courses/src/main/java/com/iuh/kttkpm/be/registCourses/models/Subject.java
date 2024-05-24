@@ -30,7 +30,4 @@ public class Subject {
     )
     private List<Subject> prerequisites;
 
-
-
-
 }
