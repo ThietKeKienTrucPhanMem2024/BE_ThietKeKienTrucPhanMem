@@ -22,7 +22,7 @@ public class RegistionController {
     //    private final RegistionService registionService;
     private final RegistionRepository registionRepository;
     private final SectionClassRepository sectionClassRepository;
-    private LookUpPointClient lookUpPointClient;
+    private final LookUpPointClient lookUpPointClient;
     private final KafkaProducer kafkaProducer;
     private final StudentRepository studentRepository;
 

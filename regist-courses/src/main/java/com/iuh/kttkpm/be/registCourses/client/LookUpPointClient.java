@@ -16,7 +16,7 @@ public interface LookUpPointClient {
     @GetMapping("subjects")
     List<Subject> getAllSubjects();
     @GetMapping("/subjects/not-registered/{studentId}")
-    List<Subject> getSubjectNotRegisteredByStudent(@PathVariable Long id);
+    List<Subject> getSubjectNotRegisteredByStudent(@PathVariable("studentId") Long studentId);
     @PostMapping("/registions/student-section-classes")
     void registerStudentToSubject(@PathVariable Long studentId, @PathVariable Long subjectId);
 }
