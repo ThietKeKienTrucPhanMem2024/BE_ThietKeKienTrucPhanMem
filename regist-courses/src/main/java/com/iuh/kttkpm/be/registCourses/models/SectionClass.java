@@ -16,7 +16,6 @@ import java.util.stream.Collectors;
 @Entity
 public class SectionClass {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long sectionClassId;
     private String name;
