@@ -14,7 +14,7 @@ public class Registion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private Long studentSectionClassId;
+    private Long registionId;
 
     @ManyToOne
     @JoinColumn(name = "student_id")

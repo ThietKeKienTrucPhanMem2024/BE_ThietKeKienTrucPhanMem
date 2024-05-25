@@ -29,4 +29,5 @@ public class SectionClassController {
         List<SectionClassDTO> sectionClassDTOs = sectionClasses.stream().map(SectionClassDTO::fromEntity).toList();
         return ResponseEntity.ok(sectionClassDTOs);
     }
+
 }

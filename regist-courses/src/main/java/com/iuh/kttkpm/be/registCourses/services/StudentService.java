@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class StudentService {
-    private LookUpPointClient lookUpPointClient;
+    private final LookUpPointClient lookUpPointClient;
     public Student getStudentById(Long id){
         return lookUpPointClient.getStudentById(id);
     }

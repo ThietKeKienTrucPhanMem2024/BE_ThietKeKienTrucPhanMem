@@ -16,7 +16,7 @@ import java.util.Set;
 public class SubjectService {
     private final SubjectRepository subjectRepository;
     private final StudentRepository studentRepository;
-    private LookUpPointClient lookUpPointClient;
+    private final LookUpPointClient lookUpPointClient;
     private final RegistionRepository registionRepository;
     public List<Subject> findSubjectNotRegisteredByStudent(Long studentId){
         return lookUpPointClient.getSubjectNotRegisteredByStudent(studentId);
@@ -28,5 +28,16 @@ public class SubjectService {
                 .collect(java.util.stream.Collectors.toSet());
         subjects.removeAll(registeredSubject);
         return subjects;
+    }
+
+//    hàm check môn học tiên quyết đã được đăng ký hay chưa
+    public boolean checkPrerequisiteSubject(Long studentId, List<Long> subjectIds){
+        List<Subject> subjectsNotRegistered = findSubjectNotRegisteredByStudent(studentId);
+        for (Subject subject : subjectsNotRegistered){
+            if(subjectIds.contains(subject.getSubjectId())){
+                return true;
+            }
+        }
+        return false;
     }
 }
