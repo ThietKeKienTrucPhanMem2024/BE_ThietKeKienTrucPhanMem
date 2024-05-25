@@ -28,33 +28,28 @@ public class SectionClass {
     private Subject subject;
     private String startDate;
     private String endDate;
+
     @Column
     private String theorySchedule;
-
     @Column
     private String practiceSchedule;
     private String room;
 
-    public void setTheorySchedule(List<WeekDay> days) {
-        this.theorySchedule = days.stream().map(Enum::name).collect(Collectors.joining(","));
+    public void setTheorySchedule(WeekDay day) {
+        this.theorySchedule = day.getDisplayName();
     }
 
-    public List<WeekDay> getTheorySchedule() {
-        if (this.theorySchedule == null || this.theorySchedule.isEmpty()) {
-            return Arrays.asList();
-        }
-        return Arrays.stream(this.theorySchedule.split(",")).map(WeekDay::valueOf).collect(Collectors.toList());
+    public WeekDay getTheorySchedule() {
+        return this.theorySchedule == null ? null : WeekDay.fromDisplayName(this.theorySchedule);
     }
 
-    public void setPracticeSchedule(List<WeekDay> days) {
-        this.practiceSchedule = days.stream().map(Enum::name).collect(Collectors.joining(","));
+    public void setPracticeSchedule(WeekDay day) {
+        this.practiceSchedule = day.getDisplayName();
     }
 
-    public List<WeekDay> getPracticeSchedule() {
-        if (this.practiceSchedule == null || this.practiceSchedule.isEmpty()) {
-            return Arrays.asList();
-        }
-        return Arrays.stream(this.practiceSchedule.split(",")).map(WeekDay::valueOf).collect(Collectors.toList());
+    public WeekDay getPracticeSchedule() {
+        return this.practiceSchedule == null ? null : WeekDay.fromDisplayName(this.practiceSchedule);
     }
+
 
 }

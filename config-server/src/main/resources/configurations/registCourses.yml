@@ -31,9 +31,10 @@ spring:
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
 application:
   config:
-    look-up-points-url: http://localhost:8222/api/v1/look-up-points
+    look-up-points-url: http://localhost:8091/api/v1/look-up-points
 
 management:
   tracing:

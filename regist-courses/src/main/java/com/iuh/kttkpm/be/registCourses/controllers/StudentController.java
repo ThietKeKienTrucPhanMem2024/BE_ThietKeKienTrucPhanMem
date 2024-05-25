@@ -4,21 +4,18 @@ import com.iuh.kttkpm.be.registCourses.client.LookUpPointClient;
 import com.iuh.kttkpm.be.registCourses.models.Student;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/regist-course/students")
+@RequestMapping("/api/v1/regist-courses/students")
 @RequiredArgsConstructor
 public class StudentController {
-    private LookUpPointClient lookUpPointClient;
+    private final LookUpPointClient lookUpPointClient;
 
-    @GetMapping
-    public ResponseEntity<Student> getAllStudentById(@RequestBody Long studentId){
+    @GetMapping("/{studentId}")
+    public ResponseEntity<Student> getStudentById(@PathVariable("studentId") Long studentId){
         return ResponseEntity.ok(lookUpPointClient.getStudentById(studentId));
     }
 }

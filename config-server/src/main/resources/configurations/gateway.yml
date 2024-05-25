@@ -12,11 +12,11 @@ spring:
         locator:
           enabled: true
       routes:
-        - id: lookUpPoints
+        - id: look-up-points
           uri: http://localhost:8091
           predicates:
             - Path=/api/v1/look-up-points/**
-        - id: registCourses
+        - id: regist-courses
           uri: http://localhost:8092
           predicates:
             - Path=/api/v1/regist-courses/**

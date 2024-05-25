@@ -11,12 +11,12 @@ import java.util.List;
 
 @FeignClient(name = "student-service", url = "${application.config.look-up-points-url}")
 public interface LookUpPointClient {
-    @GetMapping("/api/v1/register-courses/students/{id}")
-    Student getStudentById(@PathVariable Long id);
-    @GetMapping("/api/v1/register-courses/subjects")
+    @GetMapping("/students/{studentId}")
+    Student getStudentById(@PathVariable("studentId") Long studentId);
+    @GetMapping("subjects")
     List<Subject> getAllSubjects();
-    @GetMapping("/api/v1/register-courses/subjects/not-registered/{studentId}")
+    @GetMapping("/subjects/not-registered/{studentId}")
     List<Subject> getSubjectNotRegisteredByStudent(@PathVariable Long id);
-    @PostMapping("/api/v1/register-courses/registions/student-section-classes")
+    @PostMapping("/registions/student-section-classes")
     void registerStudentToSubject(@PathVariable Long studentId, @PathVariable Long subjectId);
 }

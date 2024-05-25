@@ -21,9 +21,9 @@ public class StudentController {
     public void createStudent(@RequestBody Student student){
                               studentRepository.save(student);
     }
-    @GetMapping("/{id}")
-    public ResponseEntity<Student> findStudentById(@PathVariable Long id){
-        return ResponseEntity.ok(studentRepository.findById(id).get());
+    @GetMapping("/{studentId}")
+    public ResponseEntity<Student> findStudentById(@PathVariable("studentId") Long studentId){
+        return ResponseEntity.ok(studentRepository.findById(studentId).get());
     }
 
     @GetMapping

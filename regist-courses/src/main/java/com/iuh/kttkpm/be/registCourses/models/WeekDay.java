@@ -86,12 +86,23 @@ public enum WeekDay {
     SUNDAY11_12("Chủ nhật (T11 -> T12)"),
     SUNDAY13_14("Chủ nhật (T13 -> T14)");
 
-    WeekDay(String day) {
-    }
-    private String day;
+    private String displayName;
 
-    public String getDay() {
-        return day;
+    WeekDay(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public static WeekDay fromDisplayName(String displayName) {
+        for (WeekDay day : WeekDay.values()) {
+            if (day.getDisplayName().equals(displayName)) {
+                return day;
+            }
+        }
+        throw new IllegalArgumentException("No enum constant with display name " + displayName);
     }
 
 }

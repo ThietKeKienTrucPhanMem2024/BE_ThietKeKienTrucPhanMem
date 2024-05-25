@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/regist-course/subjects")
+@RequestMapping("/api/v1/regist-courses/subjects")
 @RequiredArgsConstructor
 public class SubjectController {
     private final SubjectRepository subjectRepository;
 
     @GetMapping
-    @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<List<SubjectDTO>> getAllSubjects() {
         List<Subject> subjects = subjectRepository.findAll();
         List<SubjectDTO> subjectDTOs = subjects.stream().map(SubjectDTO::fromEntity).toList();
