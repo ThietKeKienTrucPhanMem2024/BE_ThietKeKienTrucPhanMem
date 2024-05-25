@@ -6,6 +6,7 @@ import com.iuh.kttkpm.be.registCourses.kafkas.producer.KafkaProducer;
 import com.iuh.kttkpm.be.registCourses.models.Registion;
 import com.iuh.kttkpm.be.registCourses.repositories.RegistionRepository;
 import com.iuh.kttkpm.be.registCourses.repositories.SectionClassRepository;
+import com.iuh.kttkpm.be.registCourses.repositories.StudentRepository;
 import com.iuh.kttkpm.be.registCourses.responses.ApiResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -23,6 +24,7 @@ public class RegistionController {
     private final SectionClassRepository sectionClassRepository;
     private LookUpPointClient lookUpPointClient;
     private final KafkaProducer kafkaProducer;
+    private final StudentRepository studentRepository;
 
 
     @PostMapping
@@ -31,7 +33,7 @@ public class RegistionController {
         try {
             Registion registion = new Registion();
             // Thiết lập thông tin đăng ký học phần từ yêu cầu của frontend
-            registion.setStudent(lookUpPointClient.getStudentById(Long.valueOf(request.getStudentId())));
+            registion.setStudent(studentRepository.findById(Long.valueOf(request.getStudentId())).get());
             registion.setSectionClass(sectionClassRepository.findById(Long.parseLong(request.getSectionClassId())).get());
 
             // Lưu thông tin đăng ký vào cơ sở dữ liệu
